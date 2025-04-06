@@ -7,11 +7,20 @@
     --yt: #ff4757;
     --tiktok: #2d3436;
     --lynkid: #008800;
-    --neon: #00cec9;
+    --email: #00cec9;
     --text-dark: #2d3436;
     --text-light: #636e72;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2') format('woff2'),
+         url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.ttf') format('truetype');
+  }
 
 * {
     margin: 0;
@@ -30,6 +39,15 @@ body {
     align-items: center;
     padding: 20px;
     background-attachment: fixed;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-family: 'Kanit', sans-serif;
+}
+
+body.loaded {
+    visibility: visible;
+    opacity: 1;
 }
 
 .popup-overlay {
@@ -63,23 +81,22 @@ body {
     box-shadow: var(--shadow);
     border: 1px solid rgba(0, 0, 0, 0.05);
     transform: translateY(20px);
-    max-height: 90vh; /* Limit height to viewport */
-    overflow-y: auto; /* Enable scrolling for content */
-    margin: 20px 0; /* Add space at top/bottom when scrolling */
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 20px 0;
     transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
 .popup-overlay.show .popup-content {
     transform: translateY(0);
-    overflow-y: auto; /* Enable scrolling for the overlay */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 30px; */
 }
 
 .close-btn {
@@ -95,18 +112,6 @@ body {
 .close-btn:hover {
     color: var(--accent);
     transform: scale(1.1);
-}
-
-.logo {
-    font-family: 'Rubik Mono One', sans-serif;
-    font-size: 1.8rem;
-    color: var(--text-dark);
-    text-transform: uppercase;
-    letter-spacing: -1px;
-}
-
-.logo span {
-    color: var(--accent);
 }
 
 .profile-section {
@@ -173,13 +178,14 @@ body {
 .links-grid {
     display: grid;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .link-card {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 12px 15px;
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -188,6 +194,15 @@ body {
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-height: 60px;
+}
+
+.link-content-wrapper {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .link-card::after {
@@ -233,6 +248,8 @@ body {
 .link-text {
     flex-grow: 1;
     text-align: left;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .link-title {
@@ -242,6 +259,9 @@ body {
     letter-spacing: 1px;
     color: var(--text-dark);
     font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .link-sub {
@@ -249,12 +269,12 @@ body {
     font-size: 0.8rem;
     color: var(--text-light);
     letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .link-badge {
-    position: absolute;
-    top: 8px;
-    right: 15px;
     background: var(--accent);
     color: white;
     padding: 3px 10px;
@@ -264,6 +284,8 @@ body {
     text-transform: uppercase;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     animation: pulse 2s infinite;
+    margin-left: 10px;
+    flex-shrink: 0;
 }
 
 @keyframes pulse {
@@ -272,7 +294,7 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Specific Card Styles */
+/* Card Specific Styles */
 .shopee {
     border-left: 4px solid var(--shopee);
 }
@@ -280,24 +302,6 @@ body {
 .shopee .link-icon {
     background: rgba(255, 118, 117, 0.15);
     color: var(--shopee);
-}
-
-.ig {
-    border-left: 4px solid var(--ig);
-}
-
-.ig .link-icon {
-    background: rgba(253, 121, 168, 0.15);
-    color: var(--ig);
-}
-
-.yt {
-    border-left: 4px solid var(--yt);
-}
-
-.yt .link-icon {
-    background: rgba(255, 71, 87, 0.15);
-    color: var(--yt);
 }
 
 .tiktok {
@@ -308,6 +312,7 @@ body {
     background: rgba(45, 52, 54, 0.15);
     color: var(--tiktok);
 }
+
 .lynkid {
     border-left: 4px solid var(--lynkid);
 }
@@ -326,12 +331,12 @@ body {
 }
 
 .email {
-    border-left: 4px solid var(--neon);
+    border-left: 4px solid var(--email);
 }
 
 .email .link-icon {
     background: rgba(0, 206, 201, 0.15);
-    color: var(--neon);
+    color: var(--email);
 }
 
 .social-buttons {
@@ -356,6 +361,7 @@ body {
     border: none;
     outline: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .social-btn::before {
@@ -414,11 +420,7 @@ body {
     .popup-content {
         padding: 25px;
         border-radius: 18px;
-        max-height: 85vh; /* Slightly smaller on mobile */
-    }
-    
-    .logo {
-        font-size: 1.6rem;
+        max-height: 85vh;
     }
     
     .profile-pic-container {
@@ -427,8 +429,9 @@ body {
     }
     
     .link-card {
-        padding: 14px;
+        padding: 10px 12px;
         border-radius: 10px;
+        min-height: 56px;
     }
     
     .link-icon {
