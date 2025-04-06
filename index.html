@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#00cec9">
-    <title>FLSHOP.ID | Links</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page</title>
+    <!-- Font Awesome JS (SVG version) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" 
+            integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer"
+            defer></script>
+    <!-- Your CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,7 +18,6 @@
         <div class="popup-content">
             <div class="header">
                 <button class="close-btn" id="closeBtn">✕</button>
-                <!-- <h1 class="logo">FL<span>SHOP.ID</span></h1> -->
             </div>
             
             <div class="profile-section">
@@ -29,15 +30,27 @@
             </div>
 
             <div class="links-grid">
-                <a href="https://shopee.ee/yourlink" class="link-card shopee" id="shopeeLink">
-                    <div class="link-icon"><i class="fas fa-shopping-bag"></i></div>
-                    <div class="link-text">
-                        <span class="link-title">SHOP COLLECTION</span>
-                        <span class="link-sub">Limited Edition Drops</span>
+                <a href="https://collshp.com/omnilink" class="link-card shopee" target="_blank" rel="noopener noreferrer">
+                    <div class="link-content-wrapper">
+                        <div class="link-icon"><i class="fas fa-store"></i></div>
+                        <div class="link-text">
+                            <span class="link-title">SHOPEE AFFILIATE</span>
+                            <span class="link-sub">Produk Rekomendasi</span>
+                        </div>
                     </div>
                     <div class="link-badge">HOT</div>
                 </a>
-
+                
+                <a href="https://www.tiktok.com/@flshop_id" class="link-card tiktok" target="_blank" rel="noopener noreferrer">
+                    <div class="link-content-wrapper">
+                        <div class="link-icon"><i class="fab fa-tiktok"></i></div>
+                        <div class="link-text">
+                            <span class="link-title">TIKTOK</span>
+                            <span class="link-sub">Viral Content</span>
+                        </div>
+                    </div>
+                </a>
+                
                 <a href="https://lynk.id/hexidee" class="link-card lynkid" target="_blank" rel="noopener noreferrer">
                     <div class="link-content-wrapper">
                         <div class="link-icon"><i class="fas fa-link"></i></div>
@@ -48,54 +61,41 @@
                     </div>
                     <div class="link-badge">NEW</div>
                 </a>
-                
-                <!-- <a href="https://instagram.com" class="link-card ig">
-                    <div class="link-icon"><i class="fab fa-instagram"></i></div>
-                    <div class="link-text">
-                        <span class="link-title">INSTAGRAM</span>
-                        <span class="link-sub">Daily Content</span>
+
+                <a href="https://instagram.com/fl.shop_id" class="link-card instagram" target="_blank" rel="noopener noreferrer">
+                    <div class="link-content-wrapper">
+                        <div class="link-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="link-text">
+                            <span class="link-title">INSTAGRAM</span>
+                            <span class="link-sub">Daily Content</span>
+                        </div>
                     </div>
                 </a>
                 
-                <a href="https://youtube.com" class="link-card yt">
-                    <div class="link-icon"><i class="fab fa-youtube"></i></div>
-                    <div class="link-text">
-                        <span class="link-title">YOUTUBE</span>
-                        <span class="link-sub">Behind The Scenes</span>
-                    </div>
-                </a> -->
-                
-                <a href="https://www.tiktok.com/@flshop_id" class="link-card tiktok">
-                    <div class="link-icon"><i class="fab fa-tiktok"></i></div>
-                    <div class="link-text">
-                        <span class="link-title">TIKTOK</span>
-                        <span class="link-sub">Viral Content</span>
-                    </div>
-                </a>
-                
-                <a href="mailto:contact@yourbrand.com" class="link-card email">
-                    <div class="link-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="link-text">
-                        <span class="link-title">CONTACT</span>
-                        <span class="link-sub">Collab/Inquiries</span>
+                <a href="mailto:flshop004@gmail.com" class="link-card email" target="_blank" rel="noopener noreferrer">
+                    <div class="link-content-wrapper">
+                        <div class="link-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="link-text">
+                            <span class="link-title">CONTACT</span>
+                            <span class="link-sub">Collab/Inquiries</span>
+                        </div>
                     </div>
                 </a>
             </div>
 
             <div class="social-buttons">
-                <div class="social-buttons">
-                    <a href="https://wa.me/6289696264400?text=Halo%20saya%20tertarik%20dengan%20produk%20Anda" 
-                       class="social-btn whatsapp" 
-                       target="_blank" 
-                       rel="noopener noreferrer">
-                       <i class="fab fa-whatsapp"></i>
-                    </a>
-                <button class="social-btn telegram"><i class="fab fa-telegram"></i></button>
-                <button class="social-btn discord"><i class="fab fa-discord"></i></button>
+                <a href="https://wa.me/6289696264400?text=Halo%20saya%20tertarik%20dengan%20produk%20Anda" 
+                   class="social-btn whatsapp" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                   <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="social-btn telegram"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-btn discord"><i class="fab fa-discord"></i></a>
             </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
