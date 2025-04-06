@@ -6,6 +6,7 @@
     --ig: #fd79a8;
     --yt: #ff4757;
     --tiktok: #2d3436;
+    --lynkid: #008800;
     --neon: #00cec9;
     --text-dark: #2d3436;
     --text-light: #636e72;
@@ -306,6 +307,22 @@ body {
 .tiktok .link-icon {
     background: rgba(45, 52, 54, 0.15);
     color: var(--tiktok);
+}
+.lynkid {
+    border-left: 4px solid var(--lynkid);
+}
+
+.lynkid .link-icon {
+    background: rgba(0, 228, 38, 0.15);
+    color: var(--lynkid);
+}
+
+.lynkid .link-title {
+    color: var(--lynkid);
+}
+
+.lynkid .link-sub {
+    color: #8c6bcf;
 }
 
 .email {
