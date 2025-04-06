@@ -1,9 +1,7 @@
-// js/script.js
-
 // DOM Elements
 const popupOverlay = document.getElementById('popupOverlay');
 const closeBtn = document.getElementById('closeBtn');
-const shopeeLink = document.getElementById('shopeeLink');
+const shopeeLink = document.querySelector('.link-card.shopee');
 const linkCards = document.querySelectorAll('.link-card');
 const socialBtns = document.querySelectorAll('.social-btn');
 
@@ -12,7 +10,6 @@ let isPopupOpen = false;
 
 // Initialize the popup
 function initPopup() {
-  // Show popup with animation after slight delay
   setTimeout(() => {
     popupOverlay.classList.add('show');
     isPopupOpen = true;
@@ -23,33 +20,26 @@ function initPopup() {
 
 // Add all event listeners
 function addEventListeners() {
-  // Close popup when clicking outside content
-  popupOverlay.addEventListener('click', handleOutsideClick, { passive: true });
+  popupOverlay.addEventListener('click', handleOutsideClick);
+  closeBtn.addEventListener('click', closePopup);
   
-  // Close button functionality
-  closeBtn.addEventListener('click', closePopup, { passive: true });
-  
-  // Add ripple effect to all links
   linkCards.forEach(link => {
-    link.addEventListener('click', createRippleEffect, { passive: false });
+    link.addEventListener('click', createRippleEffect);
   });
   
-  // Add hover effect to social buttons
   socialBtns.forEach(btn => {
-    btn.addEventListener('mouseenter', addHoverEffect, { passive: true });
-    btn.addEventListener('mouseleave', removeHoverEffect, { passive: true });
+    btn.addEventListener('mouseenter', addHoverEffect);
+    btn.addEventListener('mouseleave', removeHoverEffect);
   });
   
-  // Track affiliate clicks if link exists
   if (shopeeLink) {
-    shopeeLink.addEventListener('click', trackAffiliateClick, { passive: false });
+    shopeeLink.addEventListener('click', trackAffiliateClick);
   }
   
-  // Handle escape key press
-  document.addEventListener('keydown', handleKeyDown, { passive: true });
+  document.addEventListener('keydown', handleKeyDown);
 }
 
-// Remove all event listeners when popup closes
+// Remove all event listeners
 function removeEventListeners() {
   popupOverlay.removeEventListener('click', handleOutsideClick);
   closeBtn.removeEventListener('click', closePopup);
@@ -98,18 +88,20 @@ function closePopup() {
 
 // Create ripple effect on click
 function createRippleEffect(e) {
-  // For Shopee link, let trackAffiliateClick handle it
   if (this === shopeeLink) return;
   
   e.preventDefault();
   const link = this;
   const href = link.getAttribute('href');
   
-  // Create ripple element
+  if (!href || href === "#") {
+    console.error("Invalid link:", href);
+    return;
+  }
+
   const ripple = document.createElement('span');
   ripple.classList.add('ripple');
   
-  // Position ripple
   const rect = link.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
@@ -117,13 +109,22 @@ function createRippleEffect(e) {
   ripple.style.left = `${x}px`;
   ripple.style.top = `${y}px`;
   
-  // Add to DOM
   link.appendChild(ripple);
   
-  // Remove after animation
   setTimeout(() => {
     ripple.remove();
-    window.open(href, '_blank');
+    try {
+      if (href.startsWith('http')) {
+        window.open(href, '_blank', 'noopener,noreferrer');
+      } else {
+        window.location.href = href;
+      }
+    } catch (error) {
+      console.error("Failed to open link:", error);
+      if (isStandalone()) {
+        window.open(href, '_blank');
+      }
+    }
   }, 600);
 }
 
@@ -132,16 +133,13 @@ function trackAffiliateClick(e) {
   e.preventDefault();
   const url = this.getAttribute('href');
   
-  // Track click
   const shopeeClicks = localStorage.getItem('shopeeClicks') || 0;
   localStorage.setItem('shopeeClicks', parseInt(shopeeClicks) + 1);
   
-  // Create ripple effect
   createRippleEffect.call(this, e);
   
-  // Open in new tab after slight delay
   setTimeout(() => {
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   }, 400);
 }
 
@@ -166,14 +164,14 @@ function isStandalone() {
   return window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 }
 
-// Disable body scroll when popup is open
+// Disable body scroll
 function disableBodyScroll() {
   document.body.style.overflow = 'hidden';
   document.body.style.position = 'fixed';
   document.body.style.width = '100%';
 }
 
-// Enable body scroll when popup closes
+// Enable body scroll
 function enableBodyScroll() {
   document.body.style.overflow = '';
   document.body.style.position = '';
@@ -186,3 +184,19 @@ if (document.readyState === 'loading') {
 } else {
   initPopup();
 }
+
+window.addEventListener('load', function() {
+  document.body.classList.add('loaded');
+  
+  const popupOverlay = document.getElementById('popupOverlay');
+  const closeBtn = document.getElementById('closeBtn');
+
+  if (!popupOverlay || !closeBtn) return;
+
+  // Rest of your popup initialization code...
+  function initPopup() {
+      // Your existing popup code
+  }
+  
+  initPopup();
+});
