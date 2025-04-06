@@ -1,3 +1,23 @@
+// Method 1: Redirect if framed
+try {
+    if (window.self !== window.top) {
+        window.top.location.href = window.self.location.href;
+    }
+} catch (e) {
+    console.error("Frame busting failed:", e);
+    
+    // Method 2: Hide content if redirect fails
+    document.body.style.display = 'none';
+    
+    // Method 3: Show message for iframed content
+    const noFrameMsg = document.createElement('div');
+    noFrameMsg.innerHTML = '<h1>This page cannot be viewed in a frame</h1>' +
+                           '<p>Please open <a href="' + window.location.href + '">this link</a> directly in your browser.</p>';
+    noFrameMsg.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:9999;padding:2rem;text-align:center;';
+    document.body.appendChild(noFrameMsg);
+    document.body.style.display = 'block';
+}
+
 if (window.self !== window.top) {
   window.top.location.href = window.self.location.href;
 }
