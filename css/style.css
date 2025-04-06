@@ -4,6 +4,7 @@
     --accent: #e84393;
     --shopee: #ff7675;
     --ig: #fd79a8;
+    --instagram: #fd79a8;
     --yt: #ff4757;
     --tiktok: #2d3436;
     --lynkid: #008800;
@@ -201,7 +202,8 @@ body.loaded {
     display: flex;
     align-items: center;
     flex-grow: 1;
-    min-width: 0; /* Mencegah overflow */
+    min-width: 0;
+    overflow: hidden;
 }
 
 .link-card::after {
@@ -314,7 +316,6 @@ body.loaded {
 
 .lynkid {
     border-left: 4px solid var(--lynkid);
-    padding: 15px 15px 15px 12px; /* Padding lebih ketat */
 }
 
 .lynkid .link-icon {
@@ -328,6 +329,23 @@ body.loaded {
 
 .lynkid .link-sub {
     color: #8c6bcf;
+}
+
+.instagram {
+    border-left: 4px solid var(--instagram);
+}
+
+.instagram .link-icon {
+    background: rgba(253, 121, 168, 0.15);
+    color: var(--instagram);
+}
+
+.instagram .link-title {
+    color: var(--instagram);
+}
+
+.instagram .link-sub {
+    color: #fe9bbe;
 }
 
 .email {
