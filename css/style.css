@@ -12,16 +12,11 @@
     --text-dark: #2d3436;
     --text-light: #636e72;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
+    --transition-time: 0.3s;
 
-@font-face {
-    font-family: 'Font Awesome 6 Brands';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2') format('woff2'),
-         url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.ttf') format('truetype');
-  }
+}body {
+    font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
 
 * {
     margin: 0;
@@ -30,8 +25,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    font-family: 'Kanit', sans-serif;
+   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: var(--text-dark);
     overflow: hidden;
     min-height: 100vh;
@@ -42,8 +36,52 @@ body {
     background-attachment: fixed;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    font-family: 'Kanit', sans-serif;
+    transition: opacity var(--transition-time) ease;
+    font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+}
+
+.noscript-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4757;
+    color: white;
+    text-align: center;
+    z-index: 9999;
+}
+
+/* Rest of your existing CSS remains the same, but with added focus styles for accessibility */
+.link-card:focus, 
+.social-btn:focus, 
+.close-btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Media queries remain the same */
+@media (max-width: 480px) {
+    /* ... existing mobile styles ... */
+}
+
+/* Print styles for better printing experience */
+@media print {
+    .popup-overlay {
+        position: static;
+        background: white;
+    }
+    
+    .popup-content {
+        box-shadow: none;
+        max-height: none;
+    }
+    
+    .social-buttons, 
+    .link-badge {
+        display: none;
+    }
 }
 
 body.loaded {
