@@ -1,3 +1,7 @@
+if (window.self !== window.top) {
+  window.top.location.href = window.self.location.href;
+}
+
 // Strict mode for better error handling
 'use strict';
 
