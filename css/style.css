@@ -201,8 +201,7 @@ body.loaded {
     display: flex;
     align-items: center;
     flex-grow: 1;
-    min-width: 0;
-    overflow: hidden;
+    min-width: 0; /* Mencegah overflow */
 }
 
 .link-card::after {
@@ -315,6 +314,7 @@ body.loaded {
 
 .lynkid {
     border-left: 4px solid var(--lynkid);
+    padding: 15px 15px 15px 12px; /* Padding lebih ketat */
 }
 
 .lynkid .link-icon {
