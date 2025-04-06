@@ -1,50 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id"> <!-- Changed to Indonesian as content seems targeted to ID -->
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioLink</title>
-    <link rel="icon" href="images/logo (ig).png" type="image/png"> <!-- Untuk .png -->
-    <!-- Font Awesome JS (SVG version) -->
+    <meta name="description" content="Temukan semua link penting FL Shop dalam satu tempat!">
+    <meta name="robots" content="index, follow">
+    <!-- Added security-related meta tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <title>BioLink - FL Shop</title>
+    <link rel="icon" href="images/logo (ig).png" type="image/png">
+    
+    <!-- Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- Font Awesome with integrity checks -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" 
             integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" 
             crossorigin="anonymous" 
             referrerpolicy="no-referrer"
             defer></script>
-    <!-- Your CSS -->
+    
+    <!-- Preload CSS -->
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Preload JS -->
+    <link rel="preload" href="js/script.js" as="script">
 </head>
 <body>
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-content">
             <div class="header">
-                <button class="close-btn" id="closeBtn">✕</button>
+                <button class="close-btn" id="closeBtn" aria-label="Tutup popup">✕</button>
             </div>
             
             <div class="profile-section">
                 <div class="profile-pic-container">
-                    <img src="images/logo (ig).png" alt="Profile" class="profile-pic">
-                    <div class="pic-frame"></div>
+                    <img src="images/logo (ig).png" alt="Logo FL Shop" class="profile-pic" width="120" height="120">
+                    <div class="pic-frame" aria-hidden="true"></div>
                 </div>
-                <h2>@FLSOHP.ID</h2>
+                <h1>@FLSOHP.ID</h1> <!-- Changed to h1 for better SEO -->
                 <p>LAYANAN | CONTENT | PRODUK</p>
             </div>
 
             <div class="links-grid">
-                <a href="https://collshp.com/omnilink" class="link-card shopee" target="_blank" rel="noopener noreferrer">
+                <a href="https://collshp.com/omnilink" class="link-card shopee" target="_blank" rel="noopener noreferrer nofollow">
                     <div class="link-content-wrapper">
-                        <div class="link-icon"><i class="fas fa-store"></i></div>
+                        <div class="link-icon"><i class="fas fa-store" aria-hidden="true"></i></div>
                         <div class="link-text">
                             <span class="link-title">SHOPEE AFFILIATE</span>
                             <span class="link-sub">Produk Rekomendasi</span>
                         </div>
                     </div>
-                    <div class="link-badge">HOT</div>
+                    <div class="link-badge" aria-label="Hot">HOT</div>
                 </a>
                 
-                <a href="https://www.tiktok.com/@flshop_id" class="link-card tiktok" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.tiktok.com/@flshop_id" class="link-card tiktok" target="_blank" rel="noopener noreferrer nofollow">
                     <div class="link-content-wrapper">
-                        <div class="link-icon"><i class="fab fa-tiktok"></i></div>
+                        <div class="link-icon"><i class="fab fa-tiktok" aria-hidden="true"></i></div>
                         <div class="link-text">
                             <span class="link-title">TIKTOK</span>
                             <span class="link-sub">Viral Content</span>
@@ -52,20 +70,20 @@
                     </div>
                 </a>
                 
-                <a href="https://lynk.id/hexidee" class="link-card lynkid" target="_blank" rel="noopener noreferrer">
+                <a href="https://lynk.id/hexidee" class="link-card lynkid" target="_blank" rel="noopener noreferrer nofollow">
                     <div class="link-content-wrapper">
-                        <div class="link-icon"><i class="fas fa-link"></i></div>
+                        <div class="link-icon"><i class="fas fa-link" aria-hidden="true"></i></div>
                         <div class="link-text">
                             <span class="link-title">LYNK.ID</span>
                             <span class="link-sub">All Links in One</span>
                         </div>
                     </div>
-                    <div class="link-badge">NEW</div>
+                    <div class="link-badge" aria-label="New">NEW</div>
                 </a>
 
-                <a href="https://instagram.com/fl.shop_id" class="link-card instagram" target="_blank" rel="noopener noreferrer">
+                <a href="https://instagram.com/fl.shop_id" class="link-card instagram" target="_blank" rel="noopener noreferrer nofollow">
                     <div class="link-content-wrapper">
-                        <div class="link-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="link-icon"><i class="fab fa-instagram" aria-hidden="true"></i></div>
                         <div class="link-text">
                             <span class="link-title">INSTAGRAM</span>
                             <span class="link-sub">Daily Content</span>
@@ -75,7 +93,7 @@
         
                 <a href="mailto:flshop004@gmail.com?subject=Kolaborasi%20Bisnis&body=Halo%20FL%20Shop,%0A%0ASaya%20tertarik%20untuk..." class="link-card email" target="_blank" rel="noopener noreferrer">
                     <div class="link-content-wrapper">
-                        <div class="link-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="link-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                         <div class="link-text">
                             <span class="link-title">CONTACT</span>
                             <span class="link-sub">Collab/Inquiries</span>
@@ -88,14 +106,21 @@
                 <a href="https://wa.me/6287839140858?text=Halo%20saya%20tertarik%20dengan%20produk%20Anda" 
                    class="social-btn whatsapp" 
                    target="_blank" 
-                   rel="noopener noreferrer">
-                   <i class="fab fa-whatsapp"></i>
+                   rel="noopener noreferrer nofollow"
+                   aria-label="WhatsApp">
+                   <i class="fab fa-whatsapp" aria-hidden="true"></i>
                 </a>
-                <a href="#" class="social-btn telegram"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-btn discord"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-btn telegram" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="#" class="social-btn discord" aria-label="Discord"><i class="fab fa-discord" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>
+
+    <noscript>
+        <div class="noscript-warning">
+            <p>JavaScript diperlukan untuk pengalaman terbaik di situs ini. Silakan aktifkan JavaScript di browser Anda.</p>
+        </div>
+    </noscript>
 
     <script src="js/script.js" defer></script>
 </body>
